@@ -20,31 +20,31 @@ from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
 # -----------
 
 class TestCollatz (TestCase) :
-    # # ----
-    # # read
-    # # ----
+    # ----
+    # read
+    # ----
 
-    # def test_read (self) :
-    #     s    = "1 10\n"
-    #     i, j = collatz_read(s)
-    #     self.assertEqual(i,  1)
-    #     self.assertEqual(j, 10)
+    def test_read (self) :
+        s    = "1 10\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i,  1)
+        self.assertEqual(j, 10)
 
-    # def test_read2 (self) :
-    #     s    = "1     10\n"
-    #     i, j = collatz_read(s)
-    #     self.assertEqual(i,  1)
-    #     self.assertEqual(j, 10)
+    def test_read2 (self) :
+        s    = "1     10\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i,  1)
+        self.assertEqual(j, 10)
 
-    # def test_read3 (self) :
-    #     s    = "1 10 100\n"
-    #     i, j = collatz_read(s)
-    #     self.assertEqual(i,  1)
-    #     self.assertEqual(j, 10)
+    def test_read3 (self) :
+        s    = "1 10 100\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i,  1)
+        self.assertEqual(j, 10)
 
-    # # ----
-    # # eval
-    # # ----
+    # ----
+    # eval
+    # ----
 
     def test_eval_1 (self) :
         v = collatz_eval(1, 10)
