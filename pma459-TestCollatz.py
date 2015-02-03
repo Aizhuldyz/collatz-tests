@@ -70,19 +70,19 @@ class TestCollatz (TestCase) :
         v = collatz_eval(1, 1)
         self.assertEqual(v, 1)
 
-    def test_eval_6 (self):
+    def test_eval_6 (self) :
         v = collatz_eval(999999, 999999)
         self.assertEqual(v, 259)
 
-    def test_eval_7 (self):
+    def test_eval_7 (self) :
         v = collatz_eval(900, 500)
         self.assertEqual(v, 179)
 
-    def test_eval_8 (self):
+    def test_eval_8 (self) :
         v = collatz_eval(1, 113382)
         self.assertEqual(v, 354)
 
-    def test_eval_9 (self):
+    def test_eval_9 (self) :
         v = collatz_eval(111111, 111111)
         w = cycle_length(111111)
         self.assertEqual(v, w)
