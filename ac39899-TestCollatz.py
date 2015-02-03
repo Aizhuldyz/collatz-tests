@@ -13,7 +13,7 @@
 from io       import StringIO
 from unittest import main, TestCase
 
-from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
+from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, cycle_length
 
 # -----------
 # TestCollatz
@@ -31,22 +31,22 @@ class TestCollatz (TestCase) :
         self.assertEqual(j, 10)
 
     def test_read_2 (self) :
-        s    = "100 200\n"
+        s    = "101 200\n"
         i, j = collatz_read(s)
-        self.assertEqual(i, 100)
+        self.assertEqual(i, 101)
         self.assertEqual(j, 200)
- 
+
     def test_read_3 (self) :
-        s    = "201 210\n"
+        s    = "1001 2000\n"
         i, j = collatz_read(s)
-        self.assertEqual(i, 201)
-        self.assertEqual(j, 210)
+        self.assertEqual(i, 1001)
+        self.assertEqual(j, 2000)
 
     def test_read_4 (self) :
-        s    = "900 1000\n"
+        s    = "10001 20000\n"
         i, j = collatz_read(s)
-        self.assertEqual(i,  900)
-        self.assertEqual(j, 1000)
+        self.assertEqual(i, 10001)
+        self.assertEqual(j, 20000)
 
     # ----
     # eval
@@ -69,8 +69,20 @@ class TestCollatz (TestCase) :
         self.assertEqual(v, 174)
 
     def test_eval_5 (self) :
-        v = collatz_eval(1, 1)
-        self.assertEqual(v, 1)
+        v = collatz_eval(500, 83)
+        self.assertEqual(v, 144)
+
+    def test_eval_6 (self) :
+        v = collatz_eval(2083, 7028)
+        self.assertEqual(v, 262)
+
+    def test_eval_7 (self) :
+        v = collatz_eval(19502, 30759)
+        self.assertEqual(v, 308)
+
+    def test_eval_8 (self) :
+        v = collatz_eval(102850, 104829)
+        self.assertEqual(v, 310)
 
     # -----
     # print
@@ -95,7 +107,7 @@ class TestCollatz (TestCase) :
         w = StringIO()
         collatz_print(w, 900, 1000, 174)
         self.assertEqual(w.getvalue(), "900 1000 174\n")
-
+        
     # -----
     # solve
     # -----
@@ -106,6 +118,30 @@ class TestCollatz (TestCase) :
         collatz_solve(r, w)
         self.assertEqual(w.getvalue(), "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
 
+    # -----
+    # cycle_length
+    # -----
+
+    def test_cycle_length_1 (self) :
+      n = cycle_length(5)
+      self.assertEqual(n, 6)
+   
+    def test_cycle_length_2 (self) :
+      n = cycle_length(44503)
+      self.assertEqual(n, 71)
+
+    def test_cycle_length_3 (self) :
+      n = cycle_length(13954)
+      self.assertEqual(n, 33)
+
+    def test_cycle_length_4 (self) :
+      n = cycle_length(88215)
+      self.assertEqual(n, 165)
+
+    def test_cycle_length_5 (self) :
+      n = cycle_length(24136)
+      self.assertEqual(n, 44)
+
 # ----
 # main
 # ----
@@ -113,7 +149,8 @@ class TestCollatz (TestCase) :
 if __name__ == "__main__" :
     main()
 
-""" #pragma: no cover
+"""
+#pragma: no cover
 % coverage3 run --branch TestCollatz.py >  TestCollatz.out 2>&1
 
 

@@ -13,7 +13,7 @@
 from io       import StringIO
 from unittest import main, TestCase
 
-from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
+from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve, cycle_length
 
 # -----------
 # TestCollatz
@@ -31,22 +31,24 @@ class TestCollatz (TestCase) :
         self.assertEqual(j, 10)
 
     def test_read_2 (self) :
-        s    = "100 200\n"
+        s    = "2 20\n"
         i, j = collatz_read(s)
-        self.assertEqual(i, 100)
-        self.assertEqual(j, 200)
- 
+        self.assertEqual(i, 2)
+        self.assertEqual(j, 20)
+
     def test_read_3 (self) :
-        s    = "201 210\n"
+        s    = "10 30\n"
         i, j = collatz_read(s)
-        self.assertEqual(i, 201)
-        self.assertEqual(j, 210)
+        self.assertEqual(i, 10)
+        self.assertEqual(j, 30)
 
     def test_read_4 (self) :
-        s    = "900 1000\n"
+        s    = "20 200\n"
         i, j = collatz_read(s)
-        self.assertEqual(i,  900)
-        self.assertEqual(j, 1000)
+        self.assertEqual(i, 20)
+        self.assertEqual(j, 200)
+
+
 
     # ----
     # eval
@@ -71,6 +73,34 @@ class TestCollatz (TestCase) :
     def test_eval_5 (self) :
         v = collatz_eval(1, 1)
         self.assertEqual(v, 1)
+        
+    def test_eval_6 (self) :
+        v = collatz_eval(2, 2)
+        self.assertEqual(v, 2)
+        
+    def test_eval_7 (self) :
+        v = collatz_eval(999999, 999999)
+        self.assertEqual(v, 259)
+        
+    def test_eval_8 (self) :
+        v = collatz_eval(210, 201)
+        self.assertEqual(v, 89)
+
+    # -----
+    # cycle_length
+    # -----
+
+    def test_cycle_length_1 (self) :
+        c = cycle_length(1)
+        self.assertEqual(c,1)
+
+    def test_cycle_length_2 (self) :
+        c = cycle_length(2)
+        self.assertEqual(c,2)
+
+    def test_cycle_length_3 (self) :
+        c = cycle_length(4)
+        self.assertEqual(c,3)
 
     # -----
     # print
@@ -83,24 +113,19 @@ class TestCollatz (TestCase) :
 
     def test_print_2 (self) :
         w = StringIO()
-        collatz_print(w, 100, 200, 125)
-        self.assertEqual(w.getvalue(), "100 200 125\n")
+        collatz_print(w, 2, 20, 20)
+        self.assertEqual(w.getvalue(), "2 20 20\n")
 
     def test_print_3 (self) :
         w = StringIO()
-        collatz_print(w, 201, 210, 89)
-        self.assertEqual(w.getvalue(), "201 210 89\n")
-
-    def test_print_4 (self) :
-        w = StringIO()
-        collatz_print(w, 900, 1000, 174)
-        self.assertEqual(w.getvalue(), "900 1000 174\n")
+        collatz_print(w, 3, 30, 30)
+        self.assertEqual(w.getvalue(), "3 30 30\n")
 
     # -----
     # solve
     # -----
 
-    def test_solve (self) :
+    def test_solve_1 (self) :
         r = StringIO("1 10\n100 200\n201 210\n900 1000\n")
         w = StringIO()
         collatz_solve(r, w)
@@ -113,7 +138,7 @@ class TestCollatz (TestCase) :
 if __name__ == "__main__" :
     main()
 
-""" #pragma: no cover
+"""
 % coverage3 run --branch TestCollatz.py >  TestCollatz.out 2>&1
 
 
@@ -123,7 +148,7 @@ if __name__ == "__main__" :
 
 
 % cat TestCollatz.out
-.......
+......
 ----------------------------------------------------------------------
 Ran 7 tests in 0.001s
 
