@@ -1,89 +1,11 @@
-.EEEEEE....EE
-======================================================================
-ERROR: test_eval_1 (__main__.TestCollatz)
+.............
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 47, in test_eval_1
-    v = collatz_eval(1, 10)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
+Ran 13 tests in 40.049s
 
-======================================================================
-ERROR: test_eval_2 (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 51, in test_eval_2
-    v = collatz_eval(100, 200)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-======================================================================
-ERROR: test_eval_3 (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 55, in test_eval_3
-    v = collatz_eval(201, 210)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-======================================================================
-ERROR: test_eval_4 (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 59, in test_eval_4
-    v = collatz_eval(900, 1000)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-======================================================================
-ERROR: test_eval_5 (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 63, in test_eval_5
-    v = collatz_eval(10, 1000)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-======================================================================
-ERROR: test_eval_6 (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 67, in test_eval_6
-    v = collatz_eval(1, 999999)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-======================================================================
-ERROR: test_solve (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 93, in test_solve
-    collatz_solve(r, w)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 121, in collatz_solve
-    v    = collatz_eval(i, j)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-======================================================================
-ERROR: test_solve_1 (__main__.TestCollatz)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "TestCollatz.py", line 99, in test_solve_1
-    collatz_solve(r, w)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 121, in collatz_solve
-    v    = collatz_eval(i, j)
-  File "/v/filer4b/v38q001/zach1/cshomework/swe/cs373-collatz/Collatz.py", line 51, in collatz_eval
-    if (cache[k]!= 0):
-TypeError: list indices must be integers, not float
-
-----------------------------------------------------------------------
-Ran 13 tests in 0.044s
-
-FAILED (errors=8)
+OK
+Name          Stmts   Miss Branch BrMiss  Cover   Missing
+---------------------------------------------------------
+Collatz          57      5     28      3    91%   67, 73-74, 79-80
+TestCollatz      58      3      2      1    93%   71-72, 108
+---------------------------------------------------------
+TOTAL           115      8     30      4    92%   
