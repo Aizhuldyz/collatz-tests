@@ -75,7 +75,7 @@ class TestCollatz (TestCase) :
         self.assertRaises(AssertionError, collatz_eval, 1000000, 1)
 
     # -----
-    # compute cycle helpert
+    # compute cycle helper
     # -----
 
     def test_cycle_length_1 (self) :

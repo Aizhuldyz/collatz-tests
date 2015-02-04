@@ -5,7 +5,7 @@ Ran 19 tests in 0.016s
 OK
 Name          Stmts   Miss Branch BrMiss  Cover   Missing
 ---------------------------------------------------------
-Collatz          35      0     16      0   100%   
+Collatz          36      0     16      0   100%   
 TestCollatz      63      0      0      0   100%   
 ---------------------------------------------------------
-TOTAL            98      0     16      0   100%   
+TOTAL            99      0     16      0   100%   
