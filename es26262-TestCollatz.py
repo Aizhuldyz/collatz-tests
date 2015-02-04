@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# -------------------------------
+# ------------------------------- 
 # projects/collatz/TestCollatz.py
 # Copyright (C) 2014
 # Glenn P. Downing
