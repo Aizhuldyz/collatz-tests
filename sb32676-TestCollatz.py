@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 # -------------------------------
-# sb32676-TestCollatz.py
+# projects/collatz/TestCollatz.py
+# Copyright (C) 2014
+# Glenn P. Downing
 # -------------------------------
 
 # -------
@@ -49,7 +51,7 @@ class TestCollatz (TestCase) :
     def test_read_5 (self) :
         s    = "1 1\n"
         i, j = collatz_read(s)
-        self.assertEqual(i,  1)
+        self.assertEqual(i, 1)
         self.assertEqual(j, 1)
 
     # ----
