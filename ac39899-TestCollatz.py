@@ -48,6 +48,11 @@ class TestCollatz (TestCase) :
         self.assertEqual(i, 10001)
         self.assertEqual(j, 20000)
 
+    def test_read_5 (self) :
+        s    = "1\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i, 0)
+        self.assertEqual(j, 0)
     # ----
     # eval
     # ----
@@ -112,11 +117,17 @@ class TestCollatz (TestCase) :
     # solve
     # -----
 
-    def test_solve (self) :
+    def test_solve_1 (self) :
         r = StringIO("1 10\n100 200\n201 210\n900 1000\n")
         w = StringIO()
         collatz_solve(r, w)
         self.assertEqual(w.getvalue(), "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
+
+    def test_solve_2 (self) :
+        r = StringIO("1\n1 10\n")
+        w = StringIO()
+        collatz_solve(r, w)
+        self.assertEqual(w.getvalue(), "1 10 20\n")
 
     # -----
     # cycle_length
