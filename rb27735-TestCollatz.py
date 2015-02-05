@@ -70,12 +70,12 @@ class TestCollatz (TestCase) :
         self.assertEqual(i, 1)
 
     def test_solver2(self):
-        i = solver(8)
-        self.assertEqual(i, 4)
-
-    def test_solver2(self):
         i = solver(3)
         self.assertEqual(i, 8)
+
+    def test_solver3(self):
+        i = solver(0)
+        self.assertEqual(i, 0)
 
     # -----
     # print
